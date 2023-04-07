@@ -1,0 +1,88 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "LTRN.-.DD.-.MM.-.YYYY.-.#####",
+ "creation": "2023-04-07 12:06:28.792725",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "article",
+  "library_member",
+  "member_name",
+  "column_break_lzujk",
+  "transaction_date",
+  "transaction_type",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "article",
+   "fieldtype": "Link",
+   "label": "Article",
+   "options": "Article"
+  },
+  {
+   "fieldname": "library_member",
+   "fieldtype": "Link",
+   "label": "Library Member",
+   "options": "Library Member"
+  },
+  {
+   "fetch_from": "library_member.member_name",
+   "fieldname": "member_name",
+   "fieldtype": "Read Only",
+   "label": "Member Name"
+  },
+  {
+   "fieldname": "column_break_lzujk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "transaction_date",
+   "fieldtype": "Date",
+   "label": "Transaction Date"
+  },
+  {
+   "fieldname": "transaction_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Transaction Type",
+   "options": "Issue\nReturn",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Library Transaction",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-04-07 12:14:00.616538",
+ "modified_by": "Administrator",
+ "module": "Library Management",
+ "name": "Library Transaction",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
