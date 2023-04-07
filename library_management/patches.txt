@@ -1,1 +1,1 @@
-library_management.patches.party_type
+library_management.patches.party

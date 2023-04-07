@@ -12,7 +12,7 @@
   "column_break_nhvpf",
   "from_date",
   "to_date",
-  "paid",
+  "is_paid",
   "amended_from"
  ],
  "fields": [
@@ -21,11 +21,11 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Library Member",
-   "options": "Library Member",
+   "options": "Visitor",
    "reqd": 1
   },
   {
-   "fetch_from": "library_member.member_name",
+   "fetch_from": "library_member.visitor_name",
    "fieldname": "member_name",
    "fieldtype": "Data",
    "label": "Member Name",
@@ -46,13 +46,7 @@
    "fieldname": "to_date",
    "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "To Date"
-  },
-  {
-   "default": "0",
-   "fieldname": "paid",
-   "fieldtype": "Check",
-   "label": "Paid",
+   "label": "To Date",
    "read_only": 1
   },
   {
@@ -63,12 +57,19 @@
    "options": "Library Membership",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_paid",
+   "fieldtype": "Check",
+   "label": "Paid",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-04-07 12:56:06.757794",
+ "modified": "2023-04-07 16:14:29.110923",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Library Membership",

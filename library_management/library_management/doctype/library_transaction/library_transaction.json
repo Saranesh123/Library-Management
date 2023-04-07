@@ -26,13 +26,14 @@
    "fieldname": "library_member",
    "fieldtype": "Link",
    "label": "Library Member",
-   "options": "Library Member"
+   "options": "Visitor"
   },
   {
-   "fetch_from": "library_member.member_name",
+   "fetch_from": "library_member.visitor_name",
    "fieldname": "member_name",
-   "fieldtype": "Read Only",
-   "label": "Member Name"
+   "fieldtype": "Data",
+   "label": "Member Name",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_lzujk",
@@ -64,7 +65,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-04-07 12:14:00.616538",
+ "modified": "2023-04-07 17:14:49.484340",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Library Transaction",

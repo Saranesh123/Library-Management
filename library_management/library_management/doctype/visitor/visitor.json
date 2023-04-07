@@ -9,7 +9,7 @@
  "field_order": [
   "first_name",
   "last_name",
-  "member_name",
+  "visitor_name",
   "column_break_6lzua",
   "email",
   "phone",
@@ -27,12 +27,6 @@
    "fieldname": "last_name",
    "fieldtype": "Data",
    "label": "Last Name"
-  },
-  {
-   "fieldname": "member_name",
-   "fieldtype": "Data",
-   "label": "Full Name",
-   "unique": 1
   },
   {
    "fieldname": "column_break_6lzua",
@@ -54,14 +48,21 @@
    "fieldname": "address",
    "fieldtype": "Text",
    "label": "Address"
+  },
+  {
+   "fieldname": "visitor_name",
+   "fieldtype": "Data",
+   "label": "Full Name",
+   "read_only": 1,
+   "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-07 12:13:10.725125",
+ "modified": "2023-04-07 15:59:21.316253",
  "modified_by": "Administrator",
  "module": "Library Management",
- "name": "Library Member",
+ "name": "Visitor",
  "owner": "Administrator",
  "permissions": [
   {

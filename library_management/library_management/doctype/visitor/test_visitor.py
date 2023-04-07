@@ -4,5 +4,5 @@
 # import frappe
 import unittest
 
-class TestLibraryMember(unittest.TestCase):
+class TestVisitor(unittest.TestCase):
 	pass
