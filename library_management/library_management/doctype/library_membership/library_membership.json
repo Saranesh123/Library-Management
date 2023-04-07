@@ -21,11 +21,11 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Library Member",
-   "options": "Library Member",
+   "options": "Visitor",
    "reqd": 1
   },
   {
-   "fetch_from": "library_member.member_name",
+   "fetch_from": "library_member.visitor_name",
    "fieldname": "member_name",
    "fieldtype": "Data",
    "label": "Member Name",
@@ -68,7 +68,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-04-07 12:56:06.757794",
+ "modified": "2023-04-07 15:54:51.039209",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Library Membership",

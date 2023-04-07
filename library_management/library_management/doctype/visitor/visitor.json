@@ -61,7 +61,7 @@
  "modified": "2023-04-07 12:13:10.725125",
  "modified_by": "Administrator",
  "module": "Library Management",
- "name": "Library Member",
+ "name": "Visitor",
  "owner": "Administrator",
  "permissions": [
   {
