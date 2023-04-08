@@ -7,8 +7,10 @@
  "engine": "InnoDB",
  "field_order": [
   "lending_period",
+  "lending",
   "column_break_ftomd",
-  "amount"
+  "amount",
+  "penalty"
  ],
  "fields": [
   {
@@ -28,12 +30,25 @@
    "fieldtype": "Currency",
    "label": "Membership Fee Amount",
    "reqd": 1
+  },
+  {
+   "fieldname": "lending",
+   "fieldtype": "Int",
+   "label": "Lending Period for Non-Membership (in days)",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "penalty",
+   "fieldtype": "Currency",
+   "label": "Penalty Amount (per day)",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-04-08 10:02:09.241686",
+ "modified": "2023-04-08 11:50:05.678668",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Library Management Setting",

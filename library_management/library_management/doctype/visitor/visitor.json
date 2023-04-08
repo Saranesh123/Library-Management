@@ -13,7 +13,8 @@
   "column_break_6lzua",
   "email",
   "phone",
-  "address"
+  "address",
+  "has_membership"
  ],
  "fields": [
   {
@@ -55,11 +56,18 @@
    "label": "Full Name",
    "read_only": 1,
    "unique": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "has_membership",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Membership"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-07 15:59:21.316253",
+ "modified": "2023-04-08 12:04:58.579245",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Visitor",

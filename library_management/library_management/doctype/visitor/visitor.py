@@ -12,3 +12,11 @@ class Visitor(Document):
 		)
         
         validate_email_address(self.email, True)
+
+        penalty = frappe.db.get_single_value("Library Management Setting", "penalty")
+        lending = frappe.db.get_single_value("Library Management Setting", "lending")
+
+        if not penalty:
+            frappe.throw("Please set the Penalty Amount in Library Management Setting.")
+        if not lending:
+            frappe.throw("Please set the Lending Period for Non-Membership in Library Management Setting.")

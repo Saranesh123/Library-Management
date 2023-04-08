@@ -14,6 +14,8 @@ frappe.ui.form.on('Library Membership', {
 					args: {
 						party: frm.doc.library_member,
 						member_name: frm.doc.member_name,
+						doc_name: frm.doc.name,
+						doctype: frm.doc.doctype,
 					},
 					callback(r) {
 						frappe.set_route("Form", "Payment Entry", r.message);
