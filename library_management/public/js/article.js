@@ -14,7 +14,8 @@ frappe.ui.form.on('Article', {
                 primary_action() {
                     var data = d.get_values();
                     frm.set_value("quantity", frm.doc.quantity + data.stock_qty);
-                    frm.refresh_field("quantity");
+                    frm.set_value("total_quantity", frm.doc.total_quantity + data.stock_qty)
+                    frm.refresh_fields();
                     frm.save();
                     d.hide();
                 },
@@ -37,7 +38,8 @@ frappe.ui.form.on('Article', {
                 primary_action() {
                     var data = d.get_values();
                     frm.set_value("quantity", frm.doc.quantity - data.stock_qty);
-                    frm.refresh_field("quantity");
+                    frm.set_value("total_quantity", frm.doc.total_quantity - data.stock_qty)
+                    frm.refresh_fields();
                     frm.save();
                     d.hide();
                 },

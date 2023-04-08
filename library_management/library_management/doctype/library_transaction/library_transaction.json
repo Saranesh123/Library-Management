@@ -14,6 +14,8 @@
   "transaction_date",
   "status",
   "has_membership",
+  "penalty_amount",
+  "is_paid",
   "amended_from"
  ],
  "fields": [
@@ -22,13 +24,15 @@
    "fieldtype": "Link",
    "label": "Article",
    "no_copy": 1,
-   "options": "Article"
+   "options": "Article",
+   "reqd": 1
   },
   {
    "fieldname": "library_member",
    "fieldtype": "Link",
    "label": "Library Member",
-   "options": "Visitor"
+   "options": "Visitor",
+   "reqd": 1
   },
   {
    "fetch_from": "library_member.visitor_name",
@@ -71,12 +75,25 @@
    "fieldtype": "Check",
    "hidden": 1,
    "label": "Membership"
+  },
+  {
+   "fieldname": "penalty_amount",
+   "fieldtype": "Currency",
+   "label": "Penalty Amount",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "is_paid",
+   "fieldtype": "Data",
+   "label": "Paid",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-04-08 12:05:33.897314",
+ "modified": "2023-04-08 14:47:18.111526",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Library Transaction",
