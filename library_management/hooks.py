@@ -31,10 +31,10 @@ app_license = "MIT"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {"Article" : "public/js/article.js"}
 doctype_list_js = {
     "Article" : "public/js/article_list.js",
-    "Library Transaction" : "library_management/library_management/doctype/library_transaction/library_transaction_list.js",
+    "Library Transaction" : "library_management/doctype/library_transaction/library_transaction_list.js",
     }
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -100,7 +100,7 @@ doctype_list_js = {
 
 doc_events = {
 	"Payment Entry": {
-		"on_submit": "library_management.library_management.python.payment_entry.update_membership",
+		"on_submit": "library_management.library_management.python.utils.update_membership",
 	}
 }
 

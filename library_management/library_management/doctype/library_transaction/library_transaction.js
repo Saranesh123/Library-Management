@@ -6,11 +6,14 @@ frappe.ui.form.on('Library Transaction', {
 		if(! frm.doc.transaction_date) {
 			frm.set_value("transaction_date", frappe.datetime.nowdate());
 		}
-
+	},
+	status(frm) {
 		frm.set_query("article", () => {
-			return{
-				filters: {
-					status: "Active",
+			if(frm.doc.status == "Issue") {
+				return{
+					filters: {
+						status: "Active",
+					}
 				}
 			}
 		})
