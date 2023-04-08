@@ -14,3 +14,6 @@ class LibraryTransaction(Document):
         else:
             frappe.db.update("Article", self.article, "quantity", (qty + 1))
             frappe.db.update("Article", self.article, "status", "Active")
+
+    def validate(self):
+        pass

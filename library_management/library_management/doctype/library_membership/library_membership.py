@@ -3,7 +3,8 @@
 
 import frappe
 from frappe.model.document import Document
-from frappe.utils import add_months
+from frappe.utils import add_months, today, add_days
+from frappe.utils.background_jobs import enqueue
 
 class LibraryMembership(Document):
     def validate(self):
@@ -17,6 +18,7 @@ class LibraryMembership(Document):
     def on_submit(self):
         if not self.is_paid:
             frappe.throw("Payment Pending for Membership")
+        frappe.db.update("Visitor", self.library_member, "has_membership", 1)
 
 @frappe.whitelist()
 def create_payment_entry(party, member_name):
@@ -36,3 +38,12 @@ def create_payment_entry(party, member_name):
     doc.flags.ignore_mandatory = True
     doc.save()
     return doc.name
+
+def validate_membership_daily_job():
+    enqueue("library_management.library_management.doctype.library_membership.library_membership.validate_membership_daily", timeout=14400, queue="long")
+
+@frappe.whitelist()
+def validate_membership_daily():
+    membership_list = frappe.get_all("Library Membership", {"to_date": add_days(today(), -1)}, ["library_member"])
+    for member in membership_list:
+        frappe.db.update("Visitor", member["library_member"], "has_membership", 0)

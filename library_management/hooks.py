@@ -107,23 +107,28 @@ doc_events = {
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-#	"all": [
-#		"library_management.tasks.all"
-#	],
-#	"daily": [
-#		"library_management.tasks.daily"
-#	],
-#	"hourly": [
-#		"library_management.tasks.hourly"
-#	],
-#	"weekly": [
-#		"library_management.tasks.weekly"
-#	]
-#	"monthly": [
-#		"library_management.tasks.monthly"
-#	]
-# }
+scheduler_events = {
+	# "all": [
+	# 	"library_management.tasks.all"
+	# ],
+	# "daily": [
+	# 	"library_management.tasks.daily"
+	# ],
+	# "hourly": [
+	# 	"library_management.tasks.hourly"
+	# ],
+	# "weekly": [
+	# 	"library_management.tasks.weekly"
+	# ],
+	# "monthly": [
+	# 	"library_management.tasks.monthly"
+	# ]
+	"cron": {
+		"0 1 * * *": [
+			"library_management.library_management.doctype.library_membership.library_membership.validate_membership_daily_job",
+		]
+	}
+}
 
 # Testing
 # -------

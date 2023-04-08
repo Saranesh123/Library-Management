@@ -13,6 +13,7 @@
   "column_break_lzujk",
   "transaction_date",
   "status",
+  "has_membership",
   "amended_from"
  ],
  "fields": [
@@ -62,12 +63,20 @@
    "label": "Transaction Type",
    "options": "Issue\nReturn",
    "reqd": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "library_member.has_membership",
+   "fieldname": "has_membership",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Membership"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-04-08 11:36:20.131033",
+ "modified": "2023-04-08 12:05:33.897314",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Library Transaction",
