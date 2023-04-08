@@ -6,7 +6,9 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "lending_period"
+  "lending_period",
+  "column_break_ftomd",
+  "amount"
  ],
  "fields": [
   {
@@ -16,12 +18,22 @@
    "label": "Lending Period (in months)",
    "non_negative": 1,
    "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ftomd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Membership Fee Amount",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-04-07 12:47:18.864887",
+ "modified": "2023-04-08 10:02:09.241686",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Library Management Setting",

@@ -12,7 +12,7 @@
   "member_name",
   "column_break_lzujk",
   "transaction_date",
-  "transaction_type",
+  "status",
   "amended_from"
  ],
  "fields": [
@@ -20,6 +20,7 @@
    "fieldname": "article",
    "fieldtype": "Link",
    "label": "Article",
+   "no_copy": 1,
    "options": "Article"
   },
   {
@@ -45,14 +46,6 @@
    "label": "Transaction Date"
   },
   {
-   "fieldname": "transaction_type",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Transaction Type",
-   "options": "Issue\nReturn",
-   "reqd": 1
-  },
-  {
    "fieldname": "amended_from",
    "fieldtype": "Link",
    "label": "Amended From",
@@ -60,12 +53,21 @@
    "options": "Library Transaction",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "default": "Return",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Transaction Type",
+   "options": "Issue\nReturn",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-04-07 17:14:49.484340",
+ "modified": "2023-04-08 11:36:20.131033",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Library Transaction",
