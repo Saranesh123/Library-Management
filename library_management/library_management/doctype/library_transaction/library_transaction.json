@@ -86,7 +86,7 @@
   {
    "default": "0",
    "fieldname": "is_paid",
-   "fieldtype": "Data",
+   "fieldtype": "Check",
    "hidden": 1,
    "label": "Paid",
    "read_only": 1
@@ -95,7 +95,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-04-10 12:09:52.678358",
+ "modified": "2023-04-10 15:31:21.097824",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Library Transaction",

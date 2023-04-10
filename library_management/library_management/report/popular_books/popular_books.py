@@ -4,7 +4,6 @@
 import frappe
 from frappe.utils import today, add_days, get_last_day, get_year_start, get_year_ending
 from datetime import date
-from frappe.query_builder.functions import Count
 from frappe import _
 
 DAYS = {
@@ -24,19 +23,6 @@ DAYS = {
 
 
 def execute(filters=None):
-	columns, data = get_columns(), get_data(filters)
-	return columns, data
-
-def get_columns():
-	columns = [
-		_("Article") + ":Link/Article:150",
-		_("Available Quantity") + ":Data:150",
-		_("Total Quantity") + ":Data:150",
-	]
-
-	return columns
-
-def get_data(filters):
 	if filters.get("frequency") == "Today":
 		start_date = today()
 		end_date = today()
@@ -66,23 +52,32 @@ def get_data(filters):
 		start_date = get_year_start(today())
 		end_date = get_year_ending(today())
 
-	library_transaction = frappe.qb.DocType("Library Transaction")
-	article = frappe.qb.DocType("Article")
-	count_all = Count(library_transaction.name).as_("count")
-
-	query = (
-		frappe.qb.from_(library_transaction)
-		.left_join(article)
-		.on(library_transaction.article == article.title)
-		.select(
-			library_transaction.article,
-			article.available_quantity,
-			article.total_quantity,
-			count_all,
-		)
-		.where(library_transaction.transaction_date[start_date:end_date] & library_transaction.status == "Issue")
-		.groupby(library_transaction.article)
-		.orderby(count_all)
+	data = frappe.db.sql(
+		"""
+		SELECT
+			tlt.article,
+			count(tlt.name) count,
+			ta.available_quantity,
+			ta.total_quantity
+		FROM
+			`tabLibrary Transaction` tlt
+		INNER JOIN `tabArticle` ta
+			ON ta.title = tlt.article
+		WHERE
+			tlt.transaction_date BETWEEN %s AND %s
+			AND tlt.status = 'Issue'
+		GROUP BY
+			tlt.article
+		ORDER BY
+			count DESC
+		""",
+		(start_date, end_date), as_dict=True
 	)
 
-	return query.run()
+	columns = [
+		_("Article") + ":Link/Article:150",
+		_("Available Quantity") + ":Data:150",
+		_("Total Quantity") + ":Data:150",
+	]
+
+	return columns, data

@@ -24,7 +24,7 @@ class LibraryMembership(Document):
         frappe.db.update("Visitor", self.library_member, "has_membership", 1)
 
 @frappe.whitelist()
-def create_payment_entry(party, member_name, doc_name, doctype):
+def create_payment_entry(party, member_name, doc_name, doctype, remarks):
     doc = frappe.new_doc("Payment Entry")
     doc.reference_name = doc_name
     doc.reference_doctype = doctype
@@ -41,6 +41,7 @@ def create_payment_entry(party, member_name, doc_name, doctype):
         amnt = frappe.get_value("Library Transaction", doc_name, "penalty_amount")
     doc.paid_amount = amnt
     doc.received_amount = amnt
+    doc.custom_remarks = remarks
     doc.source_exchange_rate = 1
     doc.target_exchange_rate = 1
     doc.flags.ignore_mandatory = True
