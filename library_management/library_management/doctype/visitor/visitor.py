@@ -3,7 +3,7 @@
 
 import frappe
 from frappe.model.document import Document
-from frappe.utils import validate_email_address
+from frappe.utils import validate_email_address, validate_phone_number
 
 class Visitor(Document):
     def validate(self):
@@ -12,6 +12,7 @@ class Visitor(Document):
 		)
         
         validate_email_address(self.email, True)
+        validate_phone_number(self.phone, throw=True)
 
         penalty = frappe.db.get_single_value("Library Management Setting", "penalty")
         lending = frappe.db.get_single_value("Library Management Setting", "lending")

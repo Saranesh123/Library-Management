@@ -7,13 +7,13 @@ from frappe.utils import today, date_diff
 
 class LibraryTransaction(Document):
     def on_submit(self):
-        qty = frappe.get_value("Article", self.article, "quantity")
+        qty = frappe.get_value("Article", self.article, "available_quantity")
         if self.status == "Issue":
-            frappe.db.update("Article", self.article, "quantity", (qty - 1))
+            frappe.db.update("Article", self.article, "available_quantity", (qty - 1))
             if (qty - 1) == 0:
                 frappe.db.update("Article", self.article, "status", "Inactive")
         else:
-            frappe.db.update("Article", self.article, "quantity", (qty + 1))
+            frappe.db.update("Article", self.article, "available_quantity", (qty + 1))
             frappe.db.update("Article", self.article, "status", "Active")
 
         if self.penalty_amount and not self.is_paid:
@@ -29,5 +29,5 @@ class LibraryTransaction(Document):
                     self.penalty_amount = (abs(date_diff(issued_doc.transaction_date, self.transaction_date))) * penalty
                 else:
                     self.penalty_amount = (abs(date_diff(doc.to_date, self.transaction_date))) * penalty
-        else:
-            frappe.throw("Article - {0} is not Issued to {1}".format(frappe.bold(self.article), frappe.bold(self.library_member)))
+        # else:
+        #     frappe.throw("Article - {0} is not Issued to {1}".format(frappe.bold(self.article), frappe.bold(self.library_member)))
