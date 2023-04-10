@@ -6,7 +6,7 @@ Library Management
 
 MIT
 
-Steps during Installation:
+Steps during Installation:<br>
     &emsp;1. Rename the file under patch folder<br>
     &emsp;2. Mention that name in patches.txt<br>
     &emsp;3. Migrate to execute the patches<br>
