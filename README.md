@@ -12,5 +12,5 @@ Steps during Installation:
     3. Migrate to execute the patches
 
 New Screens Screenshot:
-    ![Visitor]
+    ![Visitor](https://github.com/Saranesh123/Library-Management/blob/master/Visitor.png)
         
